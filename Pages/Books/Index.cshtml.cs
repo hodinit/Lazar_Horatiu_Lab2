@@ -24,6 +24,7 @@ namespace Lazar_Horatiu_Lab2.Pages.Books
         public async Task OnGetAsync()
         {
             Book = await _context.Book
+                .Include(i=>i.Author)
                 .Include(b=>b.Publisher)
                 .ToListAsync();
         }
