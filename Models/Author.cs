@@ -1,4 +1,6 @@
-﻿namespace Lazar_Horatiu_Lab2.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Lazar_Horatiu_Lab2.Models
 {
     public class Author
     {
@@ -7,7 +9,7 @@
         public string LastName { get; set; }
 
         public ICollection<Book>? Books { get; set; }
-
+        [Display(Name = "Full Name")]
         public string FullName => $"{FirstName} {LastName}";
 
     }
