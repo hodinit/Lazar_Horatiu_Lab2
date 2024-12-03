@@ -24,6 +24,7 @@ namespace Lazar_Horatiu_Lab2.Models
 
         public Author? Author { get; set; }
 
+        public ICollection<Borrowing>? Borrowings { get; set; }
         public ICollection<BookCategory>? BookCategories { get; set; }
     }
 }
