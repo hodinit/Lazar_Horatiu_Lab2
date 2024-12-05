@@ -28,6 +28,12 @@ namespace Lazar_Horatiu_Lab2.Pages.Borrowings
                 return NotFound();
             }
 
+            Borrowing = await _context.Borrowing
+                .Include(b => b.Member)
+                .Include(b => b.Book)
+                .ThenInclude(b => b.Author)
+                .FirstOrDefaultAsync(m => m.ID == id);
+
             var borrowing = await _context.Borrowing.FirstOrDefaultAsync(m => m.ID == id);
             if (borrowing == null)
             {
