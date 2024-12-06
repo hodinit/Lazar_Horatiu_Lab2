@@ -26,9 +26,11 @@ namespace Lazar_Horatiu_Lab2.Pages.Books
             if (id == null)
             {
                 return NotFound();
-            }
+            }          
+            var book = await _context.Book
+                .Include(i => i.Author)
+                .FirstOrDefaultAsync(m => m.ID == id);
 
-            var book = await _context.Book.FirstOrDefaultAsync(m => m.ID == id);
             if (book == null)
             {
                 return NotFound();
